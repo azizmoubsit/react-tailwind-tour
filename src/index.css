@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 190 10% 4%;
+  }
+}
+
+.react-tour-content {
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+}
+.tour-blurred {
+  filter: blur(4px);
+}
+.tour-preview {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  box-shadow: -6px 0 12px rgba(0, 0, 0, 0.06);
+  z-index: 1001;
+  transition: all 0.2s;
+}
+@media screen and (min-width: 768px) {
+  .tour-preview {
+    width: 432px;
+    height: 492px;
+    right: 30px;
+    bottom: 30px;
+  }
+}
+.tour-preview.is-scaled {
+  height: 80vh;
+  height: calc(var(--vh, 1vh) * 80);
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+@media screen and (min-width: 768px) {
+  .tour-preview.is-scaled {
+    width: 650px;
+  }
+}
+.tour-preview .close,
+.tour-preview .scale {
+  position: absolute;
+  top: 30px;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  transition: 0.2s opacity;
+}
+.tour-preview .close:hover,
+.tour-preview .scale:hover {
+  opacity: 0.7;
+}
+.tour-preview .close {
+  right: 30px;
+  transform: rotate(45deg);
+}
+.tour-preview .scale {
+  right: 56px;
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .tour-preview .scale {
+    display: block;
+  }
+}
+.tour-preview .scale.is-scaled {
+  clip-path: #333;
+}
+.tour-preview .step {
+  height: 100%;
+}
+.tour-preview .teaser,
+.tour-preview .react-tour-content {
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+}
+.tour-preview .teaser {
+  background-color: #f4f6f8;
+}
+.tour-preview .teaser img {
+  width: 100%;
+  height: 100%;
+}
+.tour-preview .react-tour-content {
+  padding: 32px 40px 40px 40px;
+}
